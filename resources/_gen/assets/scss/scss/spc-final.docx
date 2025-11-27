@@ -252,5 +252,4 @@ RFIC Die floorplan示例
 •	用於頻率轉換。
 射頻前端模塊（RF Front-End Module）:
 •	包括功率放大器（PA）、低噪聲放大器（LNA）、和開關。
-•	負責信號的放大和切換。
-
+•	負責信號的放大和切換。t
