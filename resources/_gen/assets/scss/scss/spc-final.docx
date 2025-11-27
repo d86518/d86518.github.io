@@ -1,0 +1,256 @@
+P1:
+This is my todays overview.
+First one is…
+
+
+
+SPC是統計手法
+
+做蛋糕會有一個規格, 為了避免成品才發現中間有壞掉
+所以每一道都有一個卡控機制,並符合客戶標準
+會有"品質特徵",確保奶油是否均勻, 厚度是否符合標準
+品質特徵會由工廠定義,這屬於in process control不會是客戶提供
+
+
+
+SPC程序書 or 作業指導書 
+以及跟他們要Control plan (要測什麼測向)
+
+MES
+COA or COC report (出貨前對產品的側向):客戶會有測試規格(Spec Limit) 
+有些產品特徵是測試就不能用(如洋芋片)
+廣義SPC: 客戶會在乎Control limit (此為天條)-->依照此份規格出貨前COA report (出貨前對產品的側向):
+
+
+
+
+例如厚度,粗細就是一個品質特徵,但如何定義,則是工廠工程師才會知道
+
+這個製成做完, 會做這兩項SPC檢測,假設一個抽5筆,會有10筆(成本考量/Vender吸收)
+日月光多少片側一片? 是測完就不能用了嗎? 可實行姓也會考量
+透過這10筆樣本,會被拋到系統裡面(筆記本會有10筆資料)
+當發現control limit超過標準, 這時候人會去把機台暫停,但不可能真的靠人,會靠機台
+研磨機台不太可能同時有量測機台(功能只有量測作用,抽樣),OP會去操作量測機台,機台測試完,
+結果會拋出來(傳統是OP key到data server,專門儲存這些data的地方)
+若機台有外掛程式&工廠有MES, 當資料超過規格, 
+1. MES會啟動暫停機制 把產品hold住. 
+2. 會回饋那台機台先暫停, 但要如何處置(有些是測到三批暫停,有些一批就暫停) or 工程師要去解hold lot.
+3.有些測向測完會暫停, 機台不可能一直繼續繼續做,必須串聯MES/SPC立即暫停.
+4. 若人去卡控, 時間會超過非常久, 不太可能靠人為
+如果沒有偷懶或省成本,通常一盒25片會測幾片? 或幾盒 或多久  測一次?
+
+
+SPC:會算control limit(類似規格, 但不是spec,有點怪怪的, 但還沒fail)
+limit怎麼來的?就是知道你平常大概85分,但今天怎麼考65分,雖然還沒超過spec,
+但還是會停機機制,屬於異常處理(abnormal),但這部分不會通知MTK,屬於他們
+in procress control
+
+若你們產品超過管制界線,出現異常,會怎麼做, OCAP是什麼?
+當發生上面狀況時, Out of control action plan
+(OCAP)去檢查是不是機台設定錯誤...等等
+可以問ASECL,
+如何處理? 從"人機料法環"開始檢查(法:方法)
+- 異常產品會hold住嗎? 那有問題的產品要放哪裡 (通常有hold貨專區)
+
+
+Audit時
+1. SPC程序書
+2. 可以看自己產品的control plan
+
+
+Does ASE implement SPC? What is the SPC procudure (SOP)
+SPC管控項目是否有跟
+What is control plan for 
+I saw process flow(FE and BE) and Corresponding control plan of each process step.
+每一站都有一些規格, 機台溫度是否一致(會有一個sensor放在裡面偵測)
+若真的有問題,確認是sensor是否有錯, 若機台有埋sensor,是否有sensor
+Does ASECL have regularly sensor calibration
+Temperature
+How is the sampling frequency and sample size?
+
+For further Digging deeper
+
+量測系統分析（measurement systems analysis）簡稱MSA,
+量測正確性, 我要有準確地跟精準的, 穩定的量測結果
+
+量測系統分析（measurement systems analysis）簡稱MSA，
+MSA is to ensure the accuracy(準確性) and Precision(精確性) of measurement
+accuracy:量得準不準
+Precision:放10次都是5公斤,就是穩定又準確
+
+SPC: process control or monitering by statistics
+
+Precise
+
+Cpk: 評估製程能力的指標
+
+calibration
+ GGR: Gagu(量測器具) R&R: repectability重複性 & reproducability再線性
+重複性: 同一個人,測同一個物件,是否能一致性(如厚度)
+再現性: 不同人,同一個物件,同一個機台,兩個人量出來是否一致
+
+1. 你們是否有監控品質quailty control plan (MSA & SPC)
+
+2. 監控到異常怎麼做? OCAP (out of control of action plan)
+Containment action:
+OCAP:立即當下的行動 (有問題先 不要用)
+Preventive action: 我找不到原因, 暫時把但有可能即懷疑地的原因都先堵住
+Corrective action, 找到原因了,對症下藥,再解禁,防堵再發而採取的措施
+
+Control plan:要驗什麼, 多久驗一次, sample size, 規格…
+Cpk (Capability of Precision Accuracy) (制程能力指標):利用平均數Mean跟標準差Standard deviation.的統計分析去確認製程能力指標
+當Cp=2, cpk=1.5 同時成立情況下,每一百萬中有3.4個有缺陷(3.4ppm)
+
+有些是雙邊: 如厚度 不能太厚  也不能太薄
+有些是單邊: 良率越高越好
+所以依照製程品質特徵的特性
+
+
+
+
+P2:
+This is my today’s overview.
+First one is…    
+ This line tour has taught me a lot.
+
+B3
+Before line tour,  I saw the FC process flow and Corresponding control method of each process step.
+The first process is grinding. This process have three control method.
+Because I majored in statistics, besides asking about process-related issues, I also inquired about how they control grinding thickness and many questions regarding SPC. 
+I’ll show you about what I learned about the design rule before going on the line tour.
+
+P4
+This slide is die floorplan
+Including the desire to understand the design philosophy and how a product is created from the beginning.
+
+RX: Receiver接收
+TX: Transmitter傳送
+
+LB :低頻（Low Band）。850-900 MHz
+HMB: 中高頻（High Middle Band），1800-2000的頻率範圍單位是兆赫（MHz）
+CB:更高頻（Critical Band或High Band）。3.多~7G的頻率範圍單位是吉赫（GHz）
+LMHB: 以上三個結合
+
+設計理念: 彼此之間不能互相干擾，所以RX會放同一邊
+They cannot interfere with each other, so RX will be placed on the same side.
+
+BPI/MIPI_A: 
+   BPI (Broadband Processor Interface): 這是一種接口，用於連接處理器和其他設備，支持高速數據傳輸。主要控制訊號可能涉及數據的啟動、停止、方向控制等。
+   MIPI_A (Mobile Industry Processor Interface): MIPI是一系列接口標準，通常用於移動設備中。MIPI_A可能指的是MIPI協議中的某個特定版本或應用。
+    MIPI_A可能涉及特定的應用場景或技術規範，例如顯示接口、相機接口等。
+     MIPI_S可能涉及不同的應用場景或技術規範，例如串行通信接口、感測器接口等。
+
+SerDes: RFIC是小顆AP, 要跟大顆CPU傳輸時,需要一個接口(如USB/相機),這個就是通訊功能的Die
+P6
+This slide covers a lot of knowledge.
+First step is taping, and then thickness, the wafer will become thinner.
+I asked them
+1.	how they control thickness accuracy and roughness.
+They answered that it is controlled using SPC.
+
+
+P7
+
+1.	們是否有quailty control plan， ASECL 如何實施 MSA 和 SPC？
+
+　＊MSA（量測系統分析Measurement Systems Analysis）:
+         用溫度監控的sensor當舉例再用秤重機放東西上去比喻
+　－　GRR（重複性和再現性）: 確保量測的精確性。重複性指同一個人測同一個物件的結果一致性，再現性指不同人測同一個物件的結果一致性。
+　－　校準（Calibration）: 秤重機是否歸0？確保量測的準確性。
+
+　＊SPC（統計製程管制Statistical Process Control）:
+客戶會在乎Control limit (此為天條)-->依照此份規格>出貨前COA report (出貨前對產品的側向):
+客戶會有測試規格(Spec Limit)，些產品特徵是測試就不能用(如洋芋片，代到X-section測完就沒了)
+
+管制圖（Control Chart）: 用來監控製程是否在控制範圍內，及時發現異常。６０分低標，６２分廠內就會及時先發現
+製程能力指標（Process Capability）: 使用 Cp 和 Cpk 指標來評估製程的穩定性和能力。
+Cp 和 Cpk 是統計製程能力的指標，用來衡量製程的變異性和是否符合規格。
+Cpk (Capability of Precision Accuracy) (制程能力指標):
+利用平均數Mean跟標準差Standard deviation.的統計分析去確認製程能力指標
+當Cp=2, cpk=1.5 同時成立情況下,每一百萬中有3.4個有缺陷(3.4ppm)
+cp只考慮製程變異（資料的集中度）賽車車速
+cpk 多考慮了製程位置　是否偏離賽道
+所以cp很好，cpk很差，代表賽車一直偏離，也可以更廣泛分析整個車隊
+
+雙邊規格: 如研磨厚度 不能太厚  也不能太薄
+單邊規格: 良率越高越好（望大特效）或防腐劑（望小特性）
+所以要依照製程品質特徵的特性去規範，例如厚度,粗細就是一個品質特徵,但如何定義,則是工廠工程師才會知道
+
+
+2. 取樣頻率和樣本大小（Control Plan）：
+取樣頻率: 　要驗什麼, 多久驗一次,規格…通常幾批lot 或時間多久  測一次
+樣本大小:  樣本大小指的是每次取樣檢測的樣本數量。
+
+
+3. 當檢測到異常時，ASECL 會採取哪些行動？
+
+－　遏制行動（Containment Action）:
+OCAP（Out of Control Action Plan）: 當發現異常時，是否立即採取行動，暫停使用有問題的產品或設備，或是否會先檢查是不是機台設定錯誤... 等等。 
+－　從"人機料法環"開始檢查(法:方法)。
+－　異常產品會hold住嗎? 那有問題的產品要放哪裡 (通常有hold貨專區)
+－　關於停機：遇到問題會先停機，但要如何處置(有些是測到三批暫停,有些一批就暫停) 
+
+－　預防行動（Preventive Action）: 我找不到原因, 暫時把但有可能即懷疑地的原因都先堵住，消除可能引起問題的原因，防止問題再次發生。
+
+－　矯正行動（Corrective Action）:
+找到問題的根本原因，對症下藥，採取針對性的措施，解決問題並防止再次發生。
+
+P9
+
+Bunder機，ｆｌｕｘ(透明)規範８小時換一次，沒換機台會叫．
+吸嘴規格約Die*80%大小，HB是1:1  (吸盤Suction cup)
+Tool: 頂針/Flicp tool/ CB tool/( 沾flux)/ CB tray
+
+
+
+
+
+
+
+
+
+------------(以下說明)-----------
+
+手機的RFIC（射頻集成電路）Die floorplan通常包含多個關鍵特徵和傳輸介面。具體的設計和配置可能會因製造商和型號而異，但一般來說，RFIC的Die floorplan包括以下主要特徵和傳輸介面：
+RFIC Die floorplan的關鍵特徵：
+傳輸介面及其功能：
+RFIC Die floorplan示例：
+手機的RFIC（射頻集成電路）Die floorplan通常包含多個關鍵特徵和傳輸介面。具體的設計和配置可能會因製造商和型號而異，但一般來說，RFIC的Die floorplan包括以下主要特徵和傳輸介面：
+RFIC Die floorplan的關鍵特徵：
+傳輸介面及其功能：
+RFIC Die floorplan示例
+總結：
+•	關鍵特徵: 射頻前端模塊、混頻器、振盪器、頻率合成器、濾波器、DAC/ADC。
+•	傳輸介面: 天線介面、基頻介面、電源管理介面、控制介面。
+這些特徵和介面共同確保RFIC能夠高效地處理射頻信號，從而實現穩定的無線通信。
+控制介面（Control Interface）:
+•	通常是SPI或I2C。
+•	用於配置和控制RFIC的工作參數。
+電源管理介面（Power Management Interface）:
+•	管理RFIC的電源供應。
+•	確保穩定的電源輸入。
+基頻介面（Baseband Interface）:
+•	連接基頻處理器（BBP）。
+•	負責數據的調制和解調。
+天線介面（Antenna Interface）:
+•	連接天線，用於射頻信號的發射和接收。
+•	負責信號的無線傳輸。
+數模轉換器（DAC）和模數轉換器（ADC）:
+•	將數字信號轉換為模擬信號，反之亦然。
+•	用於基頻處理。
+濾波器（Filter）:
+•	過濾不需要的信號和噪聲。
+•	包括帶通濾波器（BPF）和低通濾波器（LPF）。
+頻率合成器（Frequency Synthesizer）:
+•	生成所需的射頻頻率。
+•	通常包括鎖相環（PLL）。
+振盪器（Oscillator）:
+•	產生穩定的射頻信號。
+•	包括本地振盪器（LO）。
+混頻器（Mixer）:
+•	將射頻信號混合到中頻（IF）或基頻（Baseband）。
+•	用於頻率轉換。
+射頻前端模塊（RF Front-End Module）:
+•	包括功率放大器（PA）、低噪聲放大器（LNA）、和開關。
+•	負責信號的放大和切換。
+
