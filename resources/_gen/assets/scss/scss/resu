@@ -1,0 +1,102 @@
+  MARS - AI-Powered 開發工具自動化平台                                                                                                                               
+
+  • 開發 MCP-based 自動化工具平台，整合 Jenkins/Perforce/Coverity 等 8+ 工程系統，                                                                                   
+    提供統一 API 介面簡化開發流程                                                                                                                                    
+
+  • 實作 RAG-based Jenkins log 自動分析系統 (FAISS + LangChain)，自動定位 build failure                                                                              
+    根因，減少 30%+ 人工除錯時間                                                                                                                                     
+
+  • 建立 tool template generator 與 plugin 架構，使新工具開發時間從 2-3 小時縮短至 5 分鐘，                                                                          
+    提升團隊開發效率 80%                                                                                                                                             
+
+  • 設計 Docker + K8s 自動化部署方案，實現 dev/prod 環境一鍵部署與版本管理                                                                                           
+
+  • 支援多 client 接入 (IDE/Desktop/Web)，整合領域知識庫提供自動化 Q&A 與故障排除                                                                                    
+
+  技術：Python, FastMCP, LangChain, FAISS, Docker, K8s, Jenkins API, Perforce API,                                                                                   
+  CI/CD Automation        
+
+
+
+
+
+Coverity Advisor (CASA) - AI 輔助程式碼品質系統                                                                                                            
+
+  系統介紹                                                                                                                                                   
+
+  整合 LLM 技術與 Coverity 靜態程式碼分析工具，為開發者提供智能化的代碼缺陷修復建議系統。支援多領域（SWRD/MPD/PSD/RRD）與多 LLM 模型，透過 RESTful API 與    
+  Kubernetes 部署提供高可用性服務。                                                                                                                          
+
+  核心功能                                                                                                                                                   
+
+  - AI 缺陷修復建議：整合內部/外部 LLM 模型（AIDE、CoIN），針對 Coverity 掃描缺陷提供修復建議                                                                
+  - DLC 生命週期整合：與 Defect Lifecycle Captain 系統整合，支援缺陷的建立、更新、稽核與 bypass 管理
+  - 自動重試機制：實作 MongoDB 佇列系統，當 DLC API 失敗時自動儲存請求並定期重試（10 分鐘間隔，最多 5 次）                                                   
+  - LLM 模型評估：提供評估 API 支援多版本資料集測試，可比較不同 LLM 模型與 AI-Judge 的效能表現                                                               
+  - Pre-checkin 驗證：支援提交前程式碼品質檢查，提早發現潛在缺陷                                                                                             
+
+  技術效益                                                                                                                                                   
+
+  - 提升開發效率：自動化缺陷分析與建議，減少人工檢視時間                                                                                                     
+  - 高可靠性：失敗請求自動佇列與重試機制，確保資料不遺失                
+  - 擴展性強：支援多 LLM 模型切換，可依需求選擇最適模型                                                                                                      
+  - 系統穩定性：部署於 Kubernetes，具備自動擴展與高可用性                                                                                                    
+
+  技術架構                                                                                                                                                   
+
+  - 後端框架：Flask (Python)、非同步處理 (asyncio)                                                                                                           
+  - 資料庫：MongoDB（連線池管理、索引優化）                             
+  - LLM 整合：AIDE OpenAI API、CoIN LLM、內部 LLM 服務                                                                                                       
+  - 容器化部署：Docker + Kubernetes（Ingress、Service、Deployment）                                                                                          
+  - CI/CD：Jenkins Pipeline（自動建置、測試、推送）                                                                                                          
+  - 關鍵技術：                                                                                                                                               
+    - RESTful API 設計                                                                                                                                       
+    - 守護程序 (Daemon Thread) 實作                                                                                                                          
+    - MongoDB 批次處理與狀態管理                                                                                                                             
+    - Kubernetes 多環境部署配置                                                                                                                              
+    - 錯誤處理與日誌系統           
+
+
+
+
+
+  iDEA - 智能數據分析系統                                                                                                                                                                       
+
+  系統介紹                                                                                                                                                                                      
+  iDEA 是一個以自然語言驅動的數據分析平台，讓使用者透過日常對話提問，系統自動產生 SQL 查詢、執行分析，並將結果轉換為易懂的圖表與洞察報告。                                                      
+
+  核心效益                                                                                                                                                                                      
+  - 降低技術門檻：非技術人員無需學習 SQL 即可進行複雜數據分析                                                                                                                                   
+  - 提升效率：自動化查詢生成與視覺化流程，分析時間從小時縮短至分鐘                                                                                                                              
+  - 知識累積：透過向量資料庫記憶過往查詢，持續優化回答準確度      
+  - 協作共享：支援儀表板建立與多用戶分享，促進團隊數據洞察交流                                                                                                                                  
+
+  主要功能                                                                                                                                                                                      
+  - 自然語言轉 SQL 查詢引擎                                                                                                                                                                     
+  - 自動化資料視覺化（多種圖表類型）                                                                                                                                                            
+  - AI 驅動的洞察分析與摘要生成                                                                                                                                                                 
+  - 個人化儀表板與分享機制                                                                                                                                                                      
+  - 查詢歷史記錄與追蹤                                                                                                                                                                          
+  - LDAP 企業身份驗證                                                                                                                                                                           
+
+  技術架構                                                                                                                                                                                      
+  - AI/ML：LangGraph (multi-agent orchestration)、OpenAI API、Milvus 向量資料庫 (RAG)                                                                                                           
+  - 後端：Python Flask、Pandas、Plotly、MS SQL Server                                                                                                                                           
+  - 前端：React 19、TypeScript、Plotly.js、Vite                                                                                                                                                 
+  - 基礎設施：Kubernetes、Docker、Apigee API Gateway                                                                                                                                            
+  - 數據源：BigQuery (透過 Apigee 存取)                                                                                                                                                         
+
+  技術亮點                                                                                                                                                                                      
+  - Multi-agent 架構實現複雜查詢理解與 SQL 優化                                                                                                                                                 
+  - RAG (Retrieval-Augmented Generation) 提升查詢準確性                                                                                                                                         
+  - 結果壓縮存儲技術處理大量數據                                                                                                                                                                
+  - 自適應圖表選擇算法依據數據特性自動推薦最佳視覺化方式                                                                                                                                        
+ 
+
+ 
+
+iDEA (intelligent Data Exploration and Analysis)
+
+MARS (Modem-only AI Resolution System)
+
+ 
